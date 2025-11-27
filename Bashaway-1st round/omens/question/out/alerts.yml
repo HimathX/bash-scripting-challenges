@@ -1,0 +1,27 @@
+groups:
+  - name: system_alerts
+    interval: 30s
+    rules:
+      - alert: HighCPU
+        expr: 'node_cpu_seconds_total > 0.8'
+        for: 5m
+        annotations:
+          summary: "High CPU usage detected"
+      
+      - alert: HighMemory
+        expr: 'node_memory_MemAvailable_bytes < 1000000000'
+        for: 5m
+        annotations:
+          summary: "High memory usage detected"
+      
+      - alert: HighDiskIO
+        expr: 'node_disk_io_time_seconds_total > 0.9'
+        for: 5m
+        annotations:
+          summary: "High disk I/O detected"
+      
+      - alert: ServiceDown
+        expr: 'up == 0'
+        for: 1m
+        annotations:
+          summary: "Service is down"

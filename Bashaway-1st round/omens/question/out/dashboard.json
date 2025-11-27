@@ -1,0 +1,49 @@
+{
+  "dashboard": {
+    "title": "System Monitoring",
+    "tags": ["monitoring"],
+    "timezone": "browser",
+    "panels": [
+      {
+        "id": 1,
+        "title": "CPU Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "node_cpu_seconds_total"
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Memory Usage",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "node_memory_MemAvailable_bytes"
+          }
+        ]
+      },
+      {
+        "id": 3,
+        "title": "Disk I/O",
+        "type": "graph",
+        "targets": [
+          {
+            "expr": "node_disk_io_time_seconds_total"
+          }
+        ]
+      },
+      {
+        "id": 4,
+        "title": "Service Health",
+        "type": "stat",
+        "targets": [
+          {
+            "expr": "up"
+          }
+        ]
+      }
+    ]
+  }
+}

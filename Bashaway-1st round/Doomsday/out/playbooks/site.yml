@@ -1,0 +1,16 @@
+---
+# Master Playbook: Site Configuration
+# Auto-generated playbook for Friday Doomsday infrastructure
+
+- name: Configure all servers
+  hosts: all
+  gather_facts: yes
+  vars_files:
+    - ../group_vars/all.yml
+  tasks:
+    - name: Ensure system is up to date
+      apt:
+        update_cache: yes
+        upgrade: dist
+      become: yes
+      when: ansible_os_family == "Debian"
